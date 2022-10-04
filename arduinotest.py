@@ -17,3 +17,6 @@ e = 'goddamnit'
 
 def test2():
     return print("Bye World")
+
+def test():
+    return print("Hello world")
