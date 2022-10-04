@@ -11,3 +11,5 @@ a = 12
 c = 11
 b = a + c
 print(b)
+
+d = a + b + c
