@@ -14,3 +14,7 @@ print(b)
 
 d = a + b + c
 e = 'goddamnit'
+
+
+def test():
+    return print("Hello world")
