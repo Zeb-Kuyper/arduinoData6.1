@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="refresh" content="3">
+    <title>
+        Everlast Agro
+    </title>
+</head>
+
+<body>
+
+    {% for i in readings %}
+    <div class="reading">
+        <p>Reading at: {{ i.timestamp }}</p>
+        <p>Humidity: {{i.humidity}}</p>
+        <p>Temperature: {{i.temperature}}</p>
+        <p>light: {{i.light}}</p>
+        <p>Average Humidity {{ _humidity_func(readings) }}</p>
+        <p>Max Humidity {{ max_humidity_func(readings) }}</p>
+        <p>Min Humidity {{ min_humidity_func(readings) }}</p>
+        <p>Average Temperature {{ _temperature_func(readings) }}</p>
+        <p>Max Temperature {{ _max_temperature_func(readings) }}</p>
+        <p>Min Temperature {{ _min_temperature_func(readings) }}</p>
+        <p>Average light {{ _light_func(readings) }}</p>
+        <p>Max light {{ _max_light_func(readings) }}</p>
+        <p>Min light {{ _min_light_func(readings) }}</p>
+        <hr>
+    </div>
+    {% endfor %}
+
+    <!-- <h1>This is the monitoring website of Everlast agro</h1>
+    {% for i in temperature %}
+
+        <p>Here is the current temperature: {{ i.current }}</p>
+        <p>Here is the average temperature: {{ i.avg }} </p>
+    {% endfor %}
+    {% for i in humidity %}
+        <p>Here is the current humidity: {{ i.current }}</p>
+        <p>Here is the average humidity: {{ i.avg }}</p>
+    {% endfor %} -->
+
+</body>
+
+</html>
