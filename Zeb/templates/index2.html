@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard Arduino</title>
+    <link
+      rel="stylesheet"
+      href="../static/stylesheet.css">
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  </head>
+
+  <header>
+    <div class="infobar">Arduino</div>
+  </header>
+
   <body>
-    {% for sensorid, readings_list in stats.items() %} 
-    <p>Average: {{ calculate_average(sensorid, "humidity") }} </p>
-    <p>Latest Reading: {{reading["Time"]}}</p>
+    <div class="row">
+      <div class="column">
+        {% for sensorid, readings_list in stats.items() %}
+        <div class="latest">Humidity {{sensorid}}: {{ readings_list[-1]["humidity"] }}</div>
+        <div class="readinglist">{% for reading in readings_list[::-1] %}</div>
+        <li class="entry">{{reading}}</li>
+          {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
 
-        {% for reading in readings_list%}
-            <p>Time: {{ reading["time"] }} </p>
+      <div class="column">
+        {% for sensorid, readings_list in stats.items() %}
+        <div class="latest">Brightness {{sensorid}} : {{ readings_list[-1]["brightness"] }}</div>
+        <div class="readinglist">{% for reading in readings_list[::-1] %}
+          <li class="entry">{{reading}}</li>
+          {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
 
-        {% endfor %} 
-    {% endfor %}
+      <div class="column">
+        {% for sensorid, readings_list in stats.items() %}
+        <div class="latest">Temperature {{sensorid}}: {{ readings_list[-1]["temp"] }}</div>
+        
+        <div class="readinglist">{% for reading in readings_list[::-1] %}
+          <li class="entry">{{reading}}</li>
+        {% endfor %}
+        {% endfor %}
+        </div>
+      </div>
+    </div> 
+
   </body>
 </html>
