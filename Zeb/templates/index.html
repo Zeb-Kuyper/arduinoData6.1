@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dashboard Arduino</title>
+        <link rel="stylesheet" href="../static/stylesheet.css"
+        
+        <!-- fontawesome icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+
+    </head>
+    <body>
+        <div class = "container">
+            <nav>
+                <ul>
+                    <li><a href="#" class = "logo">
+                        <img src="../static/ArduinoCommunityLogo.png" alt="">
+                        <span class="nav-item">Dashboard</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-droplet"></i>
+                        <span class="nav-item">Humidity</span>
+                    </a></li>
+                    <li><a href="">
+                        <i class="fas fa-sun"></i>
+                        <span class="nav-item">Brightness</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-thermometer-half"></i>
+                        <span class="nav-item">Temperature</span>
+                    </a></li>
+                </ul>
+            </nav>
+
+            <section class="main">
+                {% for sensorid, readings_list in stats.items() %}
+                {% for reading in readings_list%}
+
+                <p>
+                    Time: {{ reading["time"] }}
+                </p>
+
+                {% endfor %}
+                {% endfor %}  
+                
+                <!-- <div class="main-top">
+                    <h1>Overview</h1>
+                </div>
+                <div class="measurement">
+                    <i class=""></i>
+                    <h3>{{ stats[id]["currentBrightness"] }}</h3>
+                </div>
+                <div class="measurement">
+                    <i class=""></i>
+                    <h3>{{ "currentHumidity" }}</h3>
+                </div>
+                <div class="measurement">
+                    <i class=""></i>
+                    <h3>{{ "currentTemperature" }}</h3>
+                </div>-->
+            </section>
+        </div>
+    </body>
+</html>

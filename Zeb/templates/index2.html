@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    {% for sensorid, readings_list in stats.items() %} 
+    <p>Average: {{ calculate_average(sensorid, "humidity") }} </p>
+    <p>Latest Reading: {{reading["Time"]}}</p>
+
+        {% for reading in readings_list%}
+            <p>Time: {{ reading["time"] }} </p>
+
+        {% endfor %} 
+    {% endfor %}
+  </body>
+</html>
