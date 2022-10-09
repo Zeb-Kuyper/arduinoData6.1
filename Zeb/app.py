@@ -1,7 +1,6 @@
-from flask import Flask, render_template, json, request
+from flask import Flask, render_template, request
 from fhict_cb_01.CustomPymata4 import CustomPymata4
-import time,sys
-from numpy import average
+import time
 
 app =  Flask(__name__)
 
