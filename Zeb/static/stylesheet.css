@@ -1,18 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
 
 .infobar{
-  position:relative;
-  height: 150px;
+  position: relative;
+  height: 50px;
   width: 100%;
   background-color: grey;
   text-align: center;
+  vertical-align: center;
   text-decoration-color: white;
+  border: black solid 1px;
+}
+/* Main 3 data columns */
+
+.row{
+  display: flex;
 }
 
 .column {
+  flex: 1;
+  height:100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  float: left;
-  width: 33.33%;
+  background-color: lightgray;
+  border: black solid 1px;
+  margin: 1%;
+}
+
+.latest { 
+  padding: 10px;
+  flex:1;
+  height: 100%;
+  flex-basis: 500px;
+  text-align: center;
 }
 
 .row:after { 
@@ -25,4 +47,41 @@
   .column {
     width: 100%;
   }
+}
+
+/* Within the data columns */
+
+.fixed_header {
+  width: 200px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  
+}
+
+.fixed_header tbody{
+  display: block;
+  width:100%;
+  overflow:auto;
+  height: 160px;
+
+}
+.fixed_header thead tr {
+  background-color:grey;
+  color: white;
+  border: black solid 1px;
+  display: block;
+
+}
+
+.fixed_header tr {
+  display: table-row;
+}
+
+.fixed_header td {
+  display: table-cell;
+  width:100px;
+  border: black solid 1px;
+  margin: 5px;
+  background-color: white;
+  text-align: right;
 }

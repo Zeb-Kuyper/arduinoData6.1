@@ -31,7 +31,7 @@ def loop():
 
     sensorID, currentTime , humidity, temperature, brightness = getRandomSensorID(), getTime() , genMeasurements()[0], genMeasurements()[1], genMeasurements()[2]
     data = { 'id': sensorID, 'time': currentTime, 'humidity':humidity, 'temp':temperature, 'brightness':brightness}
-    time.sleep(1.5)
+    time.sleep(0.5)
     response = requests.post("http://127.0.0.1:5000/data", json=data, headers=headers)
 
 

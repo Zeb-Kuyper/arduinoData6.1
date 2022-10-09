@@ -1,8 +1,15 @@
 from flask import Flask, render_template, json, request
 from fhict_cb_01.CustomPymata4 import CustomPymata4
 import time,sys
+from numpy import average
 
 app =  Flask(__name__)
+
+averagesList = {
+    'humidity' : [],
+    'brightness' : [],
+    'temp' : []
+}
 
 statsDict = {}
 currentTime = time.strftime("%H:%M:%S", time.localtime())
@@ -32,7 +39,14 @@ def receive_data():
     return "OK",200
 
 def calculate_average(id, measurement):
-     return sum([reading[measurement] for reading in statsDict[id]]) / len(statsDict[id])
+    average = round(sum([reading[measurement] for reading in statsDict[id]]) / len(statsDict[id]),2)
+
+    return average
+
+def calculate_sensors_avg(measurement):
+    for sensors in statsDict:
+        averageSensors = sum([reading[measurement] for reading in statsDict[sensors]]) / len(statsDict[sensors])
+
 
 if __name__ == '__main__':
  app.run(debug=True, host='0.0.0.0', port=5000)
