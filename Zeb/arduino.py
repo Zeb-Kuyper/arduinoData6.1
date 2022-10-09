@@ -12,9 +12,11 @@ brightness = 0
 temperature = 0
 currentTime = ''
 
-def get_time(): 
-    global currentTime
-    currentTime = time.strftime("%H:%M:%S", time.localtime())
+def getTime():
+    t = time.localtime()
+    currentTime = time.strftime("%d/%m/%Y, %H:%M:%S",t)
+    
+    return currentTime
      
 
 def store_LDR(data):
@@ -37,7 +39,7 @@ def setup(): # Initialize readings
 
 def loop():
     global humidity, brightness, temperature
-    get_time()
+    currentTime = getTime()
     if humidity != 0 and temperature != 0 and brightness != 0:
         data = { 'id': sensorID, 'time': currentTime, 'humidity':humidity, 'temp':temperature, 'brightness':brightness}
         requests.post("http://localhost:5000/data", json=data, headers=headers)

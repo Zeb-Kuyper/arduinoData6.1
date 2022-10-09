@@ -40,12 +40,7 @@ def receive_data():
 
 def calculate_average(id, measurement):
     average = round(sum([reading[measurement] for reading in statsDict[id]]) / len(statsDict[id]),2)
-
     return average
-
-def calculate_sensors_avg(measurement):
-    for sensors in statsDict:
-        averageSensors = sum([reading[measurement] for reading in statsDict[sensors]]) / len(statsDict[sensors])
 
 
 if __name__ == '__main__':

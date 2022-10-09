@@ -1,4 +1,4 @@
-sensor_id,time_stamp,humidity,temperature,brightness
+id,time,humidity,temp,brightness
 sensor_1,20-01-2022 12:21:24,24.0,28.89,544
 sensor_1,20-01-2022 12:21:28,27.0,28.6,544
 sensor_1,20-01-2022 12:21:35,28.0,29.0,544
