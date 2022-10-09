@@ -1,6 +1,5 @@
 from fhict_cb_01.CustomPymata4 import CustomPymata4
 import time,sys
-import csv
 import requests
 
 DHTPIN = 12
