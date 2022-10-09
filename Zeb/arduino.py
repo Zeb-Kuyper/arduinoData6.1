@@ -19,12 +19,14 @@ def get_time():
 
 def store_LDR(data):
     global brightness
-    brightness = data[2]
+    if data[2] != 0:
+        brightness = data[2]
     
 def store_temp_hum(data): 
     global humidity, temperature
-    humidity = data[4]
-    temperature = data[5]
+    if data[4] != 0 and data[5] != 0 :
+        humidity = data[4]
+        temperature = data[5]
     
 def setup(): # Initialize readings
     global board
@@ -35,10 +37,10 @@ def setup(): # Initialize readings
 
 def loop():
     global humidity, brightness, temperature
-    store_LDR()
-    store_temp_hum()
-    data = { 'id': sensorID, 'time': currentTime, 'humidity':humidity, 'temp':temperature, 'brightness':brightness}
-    requests.post("http:localhost:5000/data", json=data, headers=headers)
+    get_time()
+    if humidity != 0 and temperature != 0 and brightness != 0:
+        data = { 'id': sensorID, 'time': currentTime, 'humidity':humidity, 'temp':temperature, 'brightness':brightness}
+        requests.post("http://localhost:5000/data", json=data, headers=headers)
     time.sleep(0.01)
 
 def arduino_main():
