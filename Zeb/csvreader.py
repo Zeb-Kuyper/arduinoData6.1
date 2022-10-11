@@ -7,6 +7,7 @@ headers = {"Content-Type": "application/json; charset=utf-8"}
 def loop():
     with open('static\sensor_log_with_id.csv') as file:
         data = csv.DictReader(file)
+        # Checking if the value is a numeric value, integers or floats are expected
         for reading in data:
             for key, value in reading.items():
                 try:
@@ -16,6 +17,7 @@ def loop():
                         reading[key] = float(value)
                     except:
                         reading[key] = str(value)
+                        return 'key value is not a numeric value', 418
                 
         requests.post("http://127.0.0.1:5000/data", json=reading, headers=headers)
     

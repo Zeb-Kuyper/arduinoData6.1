@@ -12,7 +12,7 @@
   </head>
 
   <header>
-    <div class="infobar">Arduino</div>
+    <div class="infobar">Arduino Dashboard</div>
   </header>
 
   <body>
@@ -28,7 +28,7 @@
                     <th>Humidity</th>
                   </tr>
                 </thead>
-                <tbody>
+                  <tbody>
                   {% for reading in readings_list[::-1] %}
                     <tr class =entry>
                       <td>{{reading['time']}}</td>

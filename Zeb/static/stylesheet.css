@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
 
 .infobar{
   position: relative;
@@ -7,8 +7,12 @@
   background-color: grey;
   text-align: center;
   vertical-align: center;
-  text-decoration-color: white;
   border: black solid 1px;
+  font-family: 'Overpass', sans-serif;
+  font-size: 32pt;
+  color: white;
+
+
 }
 /* Main 3 data columns */
 
@@ -27,6 +31,8 @@
   background-color: lightgray;
   border: black solid 1px;
   margin: 1%;
+
+  font-family: 'Overpass', sans-serif;
 }
 
 .latest { 
@@ -51,25 +57,35 @@
 
 /* Within the data columns */
 
+.readinglist {
+  border: 1px solid;
+  border-spacing: 0;
+}
+
 .fixed_header {
-  width: 200px;
-  table-layout: fixed;
+  width: 100%;
+  display: block;
+  position: relative;
   border-collapse: collapse;
   
 }
+.fixed_header thead {
+  display: block;
+  width: 100%;
 
+}
 .fixed_header tbody{
   display: block;
   width:100%;
   overflow:auto;
   height: 160px;
+  background-color: white;
 
 }
-.fixed_header thead tr {
+.fixed_header th {
   background-color:grey;
   color: white;
-  border: black solid 1px;
-  display: block;
+  width: 100%;
 
 }
 
@@ -80,7 +96,6 @@
 .fixed_header td {
   display: table-cell;
   width:100px;
-  border: black solid 1px;
   margin: 5px;
   background-color: white;
   text-align: right;
