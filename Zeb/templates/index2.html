@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard Arduino</title>
+    <link
+      rel="stylesheet"
+      href="../static/stylesheet.css">
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  </head>
+
+  <header>
+    <div class="infobar">Arduino Dashboard</div>
+  </header>
+
+  <body>
+    <div class="row">
+      <div class="column">
+        {% for sensorid, readings_list in stats.items() %}
+          <div class="latest">{{sensorid}} Humidity Average: {{ calculate_average(sensorid, "humidity") }} %</div>
+            <div class="readinglist">
+              <table class = fixed_header>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Humidity</th>
+                  </tr>
+                </thead>
+                  <tbody>
+                  {% for reading in readings_list[::-1] %}
+                    <tr class =entry>
+                      <td>{{reading['time']}}</td>
+                      <td>{{reading['humidity']}}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% endfor %}
+      </div>
+      <div class="column">
+        {% for sensorid, readings_list in stats.items() %}
+          <div class="latest">{{sensorid}} Brightness Average: {{ calculate_average(sensorid, "brightness")  }} </div>
+            <div class="readinglist">
+              <table class = fixed_header>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Brightness</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for reading in readings_list[::-1] %}
+                    <tr class =entry>
+                      <td>{{reading['time']}}</td>
+                      <td>{{reading['brightness']}}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% endfor %}
+      </div>
+
+      <div class="column">
+        {% for sensorid, readings_list in stats.items() %}
+          <div class="latest">{{sensorid}} Temperature Average: {{ calculate_average(sensorid, "temp") }} C</div>
+            <div class="readinglist">
+              <table class = fixed_header>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Temperature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for reading in readings_list[::-1] %}
+                    <tr class =entry>
+                      <td>{{reading['time']}}</td>
+                      <td>{{reading['temp']}}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% endfor %}
+      </div>
+    </div>
+
+  </body>
+</html>

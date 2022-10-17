@@ -4,6 +4,7 @@ from flask import request
 from datetime import datetime
 
 app = Flask(__name__)
+board = 0
 
 class Reading:
 

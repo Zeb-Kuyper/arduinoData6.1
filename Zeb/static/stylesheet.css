@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+.infobar{
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background-color: grey;
+  text-align: center;
+  vertical-align: center;
+  border: black solid 1px;
+  font-family: 'Overpass', sans-serif;
+  font-size: 32pt;
+  color: white;
+
+
+}
+/* Main 3 data columns */
+
+.row{
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  height:100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: lightgray;
+  border: black solid 1px;
+  margin: 1%;
+
+  font-family: 'Overpass', sans-serif;
+}
+
+.latest { 
+  padding: 10px;
+  flex:1;
+  height: 100%;
+  flex-basis: 500px;
+  text-align: center;
+}
+
+.row:after { 
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* Within the data columns */
+
+.readinglist {
+  border: 1px solid;
+  border-spacing: 0;
+}
+
+.fixed_header {
+  width: 100%;
+  display: block;
+  position: relative;
+  border-collapse: collapse;
+  
+}
+.fixed_header thead {
+  display: block;
+  width: 100%;
+
+}
+.fixed_header tbody{
+  display: block;
+  width:100%;
+  overflow:auto;
+  height: 160px;
+  background-color: white;
+
+}
+.fixed_header th {
+  background-color:grey;
+  color: white;
+  width: 100%;
+
+}
+
+.fixed_header tr {
+  display: table-row;
+}
+
+.fixed_header td {
+  display: table-cell;
+  width:100px;
+  margin: 5px;
+  background-color: white;
+  text-align: right;
+}
